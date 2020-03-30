@@ -8,7 +8,8 @@ import java.util.Arrays;
 
 @AllArgsConstructor
 public enum 社員 {
-    _青木規彰(new 社員クラス(1, new 名前("青木規彰")));
+    _青木規彰(new 社員クラス(1, new 名前("青木規彰"))),
+    _平野圭一(new 社員クラス(10, new 名前("平野圭一")));
 
     @Getter
     private final 社員クラス _社員クラス;

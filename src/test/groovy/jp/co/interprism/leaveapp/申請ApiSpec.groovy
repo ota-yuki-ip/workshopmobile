@@ -9,7 +9,8 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 import static jp.co.interprism.leaveapp.domain.カテゴリ.カテゴリ._休暇
-import static jp.co.interprism.leaveapp.domain.社員.社員._青木規彰
+import static jp.co.interprism.leaveapp.infrastructure.承認.承認者固定._承認青木規彰
+import static jp.co.interprism.leaveapp.infrastructure.承認.承認者固定._承認平野圭一
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @Unroll
@@ -33,9 +34,8 @@ class 申請ApiSpec extends Specification {
         setup:
         def builder = MockMvcRequestBuilders
                 .get(apipath)
-//                .param("カテゴリ", _休暇.get_カテゴリ名().カテゴリ.toString())
                 .param("カテゴリ", _休暇.name())
-                .param("申請者ID", _青木規彰.get_社員クラス().社員ID.toString())
+                .param("申請者ID", _承認平野圭一.get承認者社員ID().toString())
                 .param("申請日",日付string.date20200327.date)
                 .param("申請期限",日付string.date20200331.date)
 
