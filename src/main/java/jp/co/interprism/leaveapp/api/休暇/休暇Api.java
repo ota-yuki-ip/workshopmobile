@@ -1,4 +1,4 @@
-package jp.co.interprism.leaveapp.api.休暇申請;
+package jp.co.interprism.leaveapp.api.休暇;
 
 import jp.co.interprism.leaveapp.domain.休暇.休暇;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @AllArgsConstructor
-public class 休暇申請Api {
+public class 休暇Api {
 
     @RequestMapping(value = "/leave-app-make", method = RequestMethod.GET)
     public Map invoke(Request request) {

@@ -1,4 +1,4 @@
-package jp.co.interprism.leaveapp.api.休暇申請;
+package jp.co.interprism.leaveapp.api.休暇;
 
 import jp.co.interprism.leaveapp.domain.休暇.種別.休暇種別;
 import lombok.Getter;

@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @Unroll
 @WebMvcTest
-class 休暇申請ApiSpec extends Specification {
+class 休暇ApiSpec extends Specification {
     @Autowired
     MockMvc mvc
 
@@ -29,7 +29,7 @@ class 休暇申請ApiSpec extends Specification {
         result.andExpect(status().is4xxClientError())
     }
 
-    def "休暇申請作成のテスト"() {
+    def "休暇作成のテスト"() {
         setup:
         def builder = MockMvcRequestBuilders
                 .get(apipath)
