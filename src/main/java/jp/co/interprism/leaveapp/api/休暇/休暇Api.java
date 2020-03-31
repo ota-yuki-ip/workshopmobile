@@ -29,26 +29,7 @@ public class 休暇Api {
                 request.get休暇種別(),
                 request.get事由()
         );
-
-        System.out.println("@申請ID");
-        System.out.println(_休暇.get_申請ID());
-        System.out.println();
-
-        System.out.println("@休暇開始日");
-        System.out.println(_休暇.get_休暇開始日());
-        System.out.println();
-
-        System.out.println("@休暇終了日");
-        System.out.println(_休暇.get_休暇終了日());
-        System.out.println();
-
-        System.out.println("@休暇種別");
-        System.out.println(_休暇.get_休暇種別());
-        System.out.println(_休暇.get_休暇種別().get_休暇種別().get休暇種別());
-        System.out.println();
-
-        System.out.println("@事由");
-        System.out.println(_休暇.get_事由());
+        request.フィールド表示(_休暇);
 
         return res;
     }

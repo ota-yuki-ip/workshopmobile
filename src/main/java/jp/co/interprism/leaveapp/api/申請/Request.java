@@ -13,7 +13,6 @@ import java.util.Date;
 @Getter
 @Setter
 public class Request {
-    //    private カテゴリ カテゴリ;
     private String カテゴリ;
     private int 申請者ID;
     private String 申請日;
@@ -25,7 +24,7 @@ public class Request {
     }
 
     public 社員 申請者idTo社員(int 社員ID) {
-        return 社員.get社員情報By社員ID(社員ID);
+        return 社員.get社員By社員ID(社員ID);
     }
 
     @SneakyThrows

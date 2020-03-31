@@ -17,10 +17,10 @@ public enum 社員 {
     /**
      * IDから社員のデータを取得する（stream利用）
      *
-     * @param id
-     * @return
+     * @param id int
+     * @return 社員
      */
-    public static 社員 get社員情報By社員ID(int id) {
+    public static 社員 get社員By社員ID(int id) {
         return Arrays.stream(社員.values())
                 .filter(data -> data.get_社員クラス().get社員ID().equals(id))
                 .findFirst()
