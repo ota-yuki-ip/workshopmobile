@@ -5,6 +5,8 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class 承認ID {
-    private final int 承認ID;
+public enum 承認後報告部署IDリスト固定 {
+    _部署IDリスト("1,2");
+
+    private final String 部署IDリスト;
 }

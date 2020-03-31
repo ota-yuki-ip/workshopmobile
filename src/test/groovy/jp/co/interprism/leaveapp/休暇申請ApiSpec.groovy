@@ -12,7 +12,9 @@ import spock.lang.Unroll
 import static jp.co.interprism.leaveapp.domain.カテゴリ.カテゴリ._休暇
 import static jp.co.interprism.leaveapp.infrastructure.承認.承認者固定._承認平野圭一
 import static jp.co.interprism.leaveapp.infrastructure.承認.承認者IDリスト固定._承認者IDリスト
+import static jp.co.interprism.leaveapp.infrastructure.承認.承認後報告部署IDリスト固定._部署IDリスト;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+
 
 @Unroll
 @WebMvcTest
@@ -51,6 +53,9 @@ class 休暇申請ApiSpec extends Specification {
 
                 /* 承認 */
                 .param("承認者IDリスト", _承認者IDリスト.get承認者IDリスト())
+
+                /* 承認後報告 */
+                .param("承認後報告部署IDリスト", _部署IDリスト.部署IDリスト)
 
         when:
         def result = mvc.perform(builder)

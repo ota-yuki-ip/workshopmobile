@@ -7,5 +7,5 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class 承認者 {
-    private final 社員 _社員;
+    private 社員 _社員;
 }

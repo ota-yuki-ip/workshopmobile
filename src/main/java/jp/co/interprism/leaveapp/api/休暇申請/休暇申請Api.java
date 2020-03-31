@@ -1,6 +1,7 @@
 package jp.co.interprism.leaveapp.api.休暇申請;
 
 
+import jp.co.interprism.leaveapp.domain.ID.ID;
 import jp.co.interprism.leaveapp.domain.カテゴリ.カテゴリ;
 import jp.co.interprism.leaveapp.domain.休暇.休暇;
 import jp.co.interprism.leaveapp.domain.休暇.種別.休暇種別;
@@ -42,7 +43,7 @@ public class 休暇申請Api {
         /*
          * 共通の処理
          */
-        int _申請ID = 申請ID固定._申請ID固定.get_申請ID().get申請ID();
+        ID _申請ID = 申請ID固定._申請ID固定.get_申請ID();
         Date 休暇申請作成日時 = new Date();
 
 
@@ -77,7 +78,7 @@ public class 休暇申請Api {
         /*
          * 承認
          */
-        int _承認ID = 承認ID固定._承認ID固定.get_承認ID().get承認ID();
+        ID _承認ID = 承認ID固定._承認ID固定.get_承認ID();
         List<承認者> 承認者リスト = request.get承認者リスト_承認ID_作成日時(_承認ID, 休暇申請作成日時);
 
         承認 _承認 = new 承認(_申請ID, _承認ID, 承認者リスト, 休暇申請作成日時, ステータス.承認中);
