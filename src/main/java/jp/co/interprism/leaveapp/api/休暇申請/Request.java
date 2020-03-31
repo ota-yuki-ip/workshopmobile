@@ -57,22 +57,23 @@ public class Request {
     /*
      * 申請
      */
-    public カテゴリ getカテゴリ(){
+    public カテゴリ getカテゴリ() {
         return 文字列からカテゴリの作成(this.カテゴリ);
     }
+
     public カテゴリ 文字列からカテゴリの作成(String カテゴリ) {
         return jp.co.interprism.leaveapp.domain.カテゴリ.カテゴリ.valueOf(カテゴリ);
     }
 
-    public 社員 get申請者ID(){
+    public 社員 get申請者ID() {
         return get社員by社員ID(this.申請者ID);
     }
 
-    public Date get申請日(){
+    public Date get申請日() {
         return 日付に変換(this.申請日);
     }
 
-    public Date get申請期限(){
+    public Date get申請期限() {
         return 日付に変換(this.申請期限);
     }
 
@@ -80,16 +81,18 @@ public class Request {
     /*
      * 休暇
      */
-    public Date get休暇開始日(){
+    public Date get休暇開始日() {
         return 日付に変換(this.休暇開始日);
     }
-    public Date get休暇終了日(){
+
+    public Date get休暇終了日() {
         return 日付に変換(this.休暇終了日);
     }
 
-    public 休暇種別 get休暇種別(){
+    public 休暇種別 get休暇種別() {
         return 文字列から休暇種別の作成(this.休暇種別);
     }
+
     public 休暇種別 文字列から休暇種別の作成(String 休暇種別) {
         return jp.co.interprism.leaveapp.domain.休暇.種別.休暇種別.valueOf(休暇種別);
     }
@@ -118,7 +121,6 @@ public class Request {
 //    private String _部署IDリスト;
 
 
-
     public 社員 get社員by社員ID(int id) {
         return 社員.get社員By社員ID(id);
     }
@@ -140,7 +142,7 @@ public class Request {
     /*
      * 〇〇表示
      */
-    public void 申請表示(申請 _申請){
+    public void 申請表示(申請 _申請) {
         System.out.println("===============");
         System.out.println("申請ID(固定値) " + _申請.get_申請ID());
         System.out.println("カテゴリ       " + _申請.get_カテゴリ().get_カテゴリ名().getカテゴリ());
@@ -151,7 +153,7 @@ public class Request {
         System.out.println("===============");
     }
 
-    public void 休暇表示(休暇 _休暇){
+    public void 休暇表示(休暇 _休暇) {
 
         System.out.println("===============");
         System.out.println("申請ID(固定値) " + _休暇.get_申請ID());
@@ -172,9 +174,9 @@ public class Request {
         System.out.println("===============");
     }
 
-    public void 承認者表示(List<承認者> 承認者リスト){
+    public void 承認者表示(List<承認者> 承認者リスト) {
         System.out.println("承認ID 社員ID 社員名 最終更新日 承認者ステータス コメント");
-        for (承認者 _承認者: 承認者リスト) {
+        for (承認者 _承認者 : 承認者リスト) {
             System.out.print(_承認者.get承認ID());
             System.out.print(" " + _承認者.get社員().get_社員クラス().get社員ID());
             System.out.print(" " + _承認者.get社員().get_社員クラス().get社員名().get_名前());
