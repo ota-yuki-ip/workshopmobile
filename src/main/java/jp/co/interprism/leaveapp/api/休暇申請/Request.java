@@ -3,6 +3,9 @@ package jp.co.interprism.leaveapp.api.休暇申請;
 import jp.co.interprism.leaveapp.domain.カテゴリ.カテゴリ;
 import jp.co.interprism.leaveapp.domain.休暇.休暇;
 import jp.co.interprism.leaveapp.domain.休暇.種別.休暇種別;
+import jp.co.interprism.leaveapp.domain.承認.ステータス;
+import jp.co.interprism.leaveapp.domain.承認.承認;
+import jp.co.interprism.leaveapp.domain.承認.承認者.承認者;
 import jp.co.interprism.leaveapp.domain.申請.申請;
 import jp.co.interprism.leaveapp.domain.社員.社員;
 import lombok.Getter;
@@ -10,7 +13,9 @@ import lombok.Setter;
 import lombok.SneakyThrows;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Getter
@@ -33,13 +38,12 @@ public class Request {
     private String 休暇終了日;
     private String 休暇種別;
     private String 事由;
-//
-//    /*
-//     * 承認
-//     */
-//    private String _承認者IDリスト;
-//    private String _承認日;
-//
+
+    /*
+     * 承認
+     */
+    private String 承認者IDリスト;
+
 //    /*
 //     * 承認後報告
 //     */
@@ -91,12 +95,22 @@ public class Request {
     }
 
 
-//    /*
-//     * 承認
-//     */
-//    private String _承認者IDリスト;
-//    private String _承認日;
-//
+    /*
+     * 承認
+     */
+    public List<承認者> get承認者リスト_承認ID_作成日時(int 承認ID, Date 休暇申請作成日時) {
+        String[] _承認者IDリスト = this.承認者IDリスト.split(",", -1);
+        List<承認者> 承認者リスト = new ArrayList<>();
+        for (String 承認者ID : _承認者IDリスト) {
+            int id = Integer.parseInt(承認者ID);
+            社員 _社員 = 社員.get社員By社員ID(id);
+            承認者リスト.add(
+                    new 承認者(承認ID, _社員, 休暇申請作成日時, ステータス.承認中, "")
+            );
+        }
+        return 承認者リスト;
+    }
+
 //    /*
 //     * 承認後報告
 //     */
@@ -146,5 +160,27 @@ public class Request {
         System.out.println("休暇種別       " + _休暇.get_休暇種別());
         System.out.println("事由          " + _休暇.get_事由());
         System.out.println("===============");
+    }
+
+    public void 承認表示(承認 _承認) {
+        System.out.println("===============");
+        System.out.println("申請ID           " + _承認.get申請ID());
+        System.out.println("承認ID           " + _承認.get承認ID());
+        承認者表示(_承認.get承認者リスト());
+        System.out.println("承認日           " + _承認.get承認日());
+        System.out.println("申請承認ステータス " + _承認.get申請承認ステータス());
+        System.out.println("===============");
+    }
+
+    public void 承認者表示(List<承認者> 承認者リスト){
+        System.out.println("承認ID 社員ID 社員名 最終更新日 承認者ステータス コメント");
+        for (承認者 _承認者: 承認者リスト) {
+            System.out.print(_承認者.get承認ID());
+            System.out.print(" " + _承認者.get社員().get_社員クラス().get社員ID());
+            System.out.print(" " + _承認者.get社員().get_社員クラス().get社員名().get_名前());
+            System.out.print(" " + _承認者.get最終更新日());
+            System.out.print(" " + _承認者.get承認者ステータス());
+            System.out.println(" " + _承認者.getコメント());
+        }
     }
 }
